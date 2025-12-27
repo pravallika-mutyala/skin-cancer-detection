@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection - SkinCare AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">SkinCare AI</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detection.html" class="active">Detection</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="detection-section">
+            <div class="container">
+                <h1>Skin Lesion Analysis</h1>
+                <p class="page-description">Upload a clear image of the skin lesion for AI-powered analysis</p>
+
+                <div class="detection-container">
+                    <div class="upload-section">
+                        <div class="upload-area" id="uploadArea">
+                            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="upload-text">Drag & Drop your image here</p>
+                            <p class="upload-subtext">or</p>
+                            <label for="fileInput" class="file-button">Browse Files</label>
+                            <input type="file" id="fileInput" accept="image/*" hidden>
+                            <p class="file-info">Supported: JPG, PNG, JPEG (Max 10MB)</p>
+                        </div>
+
+                        <div class="preview-section" id="previewSection" style="display: none;">
+                            <img id="imagePreview" alt="Preview">
+                            <button class="remove-button" id="removeButton">Remove Image</button>
+                        </div>
+
+                        <div class="webcam-option">
+                            <button class="secondary-button" id="webcamButton">
+                                <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                    <circle cx="12" cy="13" r="4"></circle>
+                                </svg>
+                                Capture from Webcam
+                            </button>
+                        </div>
+
+                        <button class="analyze-button" id="analyzeButton" disabled>
+                            Analyze Image
+                        </button>
+                    </div>
+
+                    <div class="results-section" id="resultsSection" style="display: none;">
+                        <h2>Analysis Results</h2>
+                        
+                        <div class="result-card">
+                            <div class="result-header">
+                                <h3>Prediction</h3>
+                                <span class="result-badge" id="resultBadge">-</span>
+                            </div>
+                            <div class="result-detail">
+                                <span class="result-label">Classification:</span>
+                                <span class="result-value" id="classification">-</span>
+                            </div>
+                            <div class="result-detail">
+                                <span class="result-label">Confidence:</span>
+                                <span class="result-value" id="confidence">-</span>
+                            </div>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <svg class="warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            <div>
+                                <strong>Important:</strong> This analysis is not a medical diagnosis. Please consult a dermatologist for professional evaluation.
+                            </div>
+                        </div>
+
+                        <button class="secondary-button" id="newAnalysisButton">
+                            Analyze Another Image
+                        </button>
+                    </div>
+
+                    <div class="loading-section" id="loadingSection" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing image...</p>
+                        <p class="loading-subtext">This may take a few seconds</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SkinCare AI. This tool is for educational purposes only and does not replace professional medical advice.</p>
+        </div>
+    </footer>
+
+    <script src="detection.js"></script>
+</body>
+</html>
